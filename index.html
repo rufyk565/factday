@@ -624,6 +624,10 @@ window.sendChat = () => {
   push(chatRef, { name, text, time: Date.now() });
   document.getElementById('cMsg').value = '';
 };
+  // Online counter
+const myOnlineRef = ref(db, 'online/' + Math.random().toString(36).slice(2));
+set(myOnlineRef, { t: Date.now() });
+setInterval(() => set(myOnlineRef, { t: Date.now() }), 30000);
 </script>
 </body>
 </html>
